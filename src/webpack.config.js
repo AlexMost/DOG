@@ -15,6 +15,10 @@ module.exports = {
                 presets: ['es2015', 'react']
               },
             },
+            {
+              test: /\.sass$/,
+              loaders: ["style", "css", "sass"]
+            },
             { test: /\.json/, loader: 'json-loader'},
         ]
     }

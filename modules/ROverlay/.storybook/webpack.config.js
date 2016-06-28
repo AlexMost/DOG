@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   resolve: {
-    root: path.resolve(__dirname, '../node_modules'),
+    root: path.resolve(__dirname, '../../../node_modules'),
 	modulesDirectories: [path.resolve(__dirname, '../modules/')]
   },
   module: {

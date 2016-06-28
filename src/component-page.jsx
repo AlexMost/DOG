@@ -1,6 +1,7 @@
 import React from 'react';
 import docMap from '../out/docs-map.json';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import './style.sass';
 
 class ComponentPage extends React.Component {
 	constructor(props) {
@@ -20,18 +21,27 @@ class ComponentPage extends React.Component {
 				<h3>{this.component.description.join(' ')}</h3>
 				 <Tabs
         			onSelect={this.handleSelect}
-        			selectedIndex={0}
-      				>
+        			selectedIndex={0}>
       				<TabList>
       					<Tab>
 							Readme
+					    </Tab>
+					    <Tab>
+					    	Try
 					    </Tab>
 				    </TabList>
 				    <TabPanel>
 				    	<iframe 
 				    		src={`/components/${this.component.name}/README.md.html`}
 				    		frameBorder="0"
-				    		height="100%"
+				    		height="900px"
+				    		width="100%"/>
+			    	</TabPanel>
+			    	<TabPanel>
+			    		<iframe 
+				    		src={`/components/${this.component.name}/storybook/index.html`}
+				    		frameBorder="0"
+				    		height="900px"
 				    		width="100%"/>
 			    	</TabPanel>
 			    </Tabs>

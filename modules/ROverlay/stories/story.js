@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
-import ROverlay from 'ROverlay';
+import ROverlay from '../index.coffee';
 
 
 class OverlayWrapper extends React.Component {
