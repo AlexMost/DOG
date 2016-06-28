@@ -4,6 +4,8 @@ import fs from 'fs';
 import lunr from 'lunr';
 import { renderToString } from 'react-dom/server';
 import wrapInHtml from './src/html-wrap';
+import { markdown } from 'markdown';
+import mkdirp from 'mkdirp';
 
 const config = require('./dog.config');
 
@@ -14,6 +16,18 @@ function parsePackageJSON(module, idx) {
 	return {name, keywords, description: description.split(' '), id: idx, type: module.type}
 }
 
+
+function parseREADME(module) {
+	const mdContent = fs.readFileSync(path.resolve(module.path, 'README.md'), {encoding: 'utf-8'});
+	const htmlContent = markdown.toHTML(mdContent);
+	const dir = `./out/components/${path.basename(module.path)}`;
+	mkdirp.sync(dir);
+	fs.writeFile(`${dir}/README.md.html`, htmlContent, (err) => {
+		if (err) throw err;
+		console.log(`>>> ${module.name}/README.md.html done`);
+	});
+}
+
 const idx = lunr(function () {
     this.field('name', { boost: 10 });
     this.field('keywords', {boost: 8});
@@ -21,6 +35,7 @@ const idx = lunr(function () {
 })
 
 const docs = config.map(parsePackageJSON);
+config.forEach(parseREADME);
 const docsMap = docs.map((doc) => ({ [doc.id]: doc }))
 					.reduce((res, obj) => Object.assign(res, obj), {})
 
