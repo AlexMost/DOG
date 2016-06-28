@@ -1,0 +1,12 @@
+{
+    "name": "roverlay",
+    "version": "1.0.0",
+    "description": "Shows some content inside overlay",
+    "main": "index.coffee",
+    "keywords": ["overlay", "popup", "modal"],
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC"
+}

@@ -1,0 +1,21 @@
+.b-react-overlay
+    overflow-y: scroll
+    background-color: #000 //fix for IE8
+    background-color: rgba(0, 0, 0, 0.85)
+    color: #333
+    cursor: default
+    display: block
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    position: fixed
+    text-align: center
+    height: 100%
+    font-family: Arial, sans-serif
+
+    &:after
+        content: ""
+        display: inline-block
+        vertical-align: middle
+        height: 100%
