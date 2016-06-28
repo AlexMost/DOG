@@ -29,6 +29,9 @@ class ComponentPage extends React.Component {
 					    <Tab>
 					    	Try
 					    </Tab>
+					    <Tab>
+					    	Doc
+				    	</Tab>
 				    </TabList>
 				    <TabPanel>
 				    	<iframe 
@@ -40,6 +43,13 @@ class ComponentPage extends React.Component {
 			    	<TabPanel>
 			    		<iframe 
 				    		src={`/components/${this.component.name}/storybook/index.html`}
+				    		frameBorder="0"
+				    		height="900px"
+				    		width="100%"/>
+			    	</TabPanel>
+			    	<TabPanel>
+			    		<iframe 
+				    		src={`/components/${this.component.name}/codo/index.html`}
 				    		frameBorder="0"
 				    		height="900px"
 				    		width="100%"/>
