@@ -3,6 +3,7 @@ import index from '../out/index.json';
 import docMap from '../out/docs-map.json';
 import Autocomplete from 'react-autocomplete';
 import lunr from 'lunr';
+import { browserHistory } from 'react-router'
 
 window.index = index;
 window.docMap = docMap;
@@ -28,7 +29,10 @@ class SearchPage extends React.Component {
 					value={this.state.value}
 					items={this.state.items}
 					getItemValue={(item) => item.name}
-					onSelect={value => this.setState({ value })}
+					onSelect={value => {
+						browserHistory.push(`/comp/${value}`);
+						this.setState({ value });
+					}}
 		  	        onChange={(event, value) => {
 		  	        	this.setState({ value });
 			            const idxresult = idx.search(value);

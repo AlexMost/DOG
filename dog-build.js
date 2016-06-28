@@ -36,8 +36,11 @@ const idx = lunr(function () {
 
 const docs = config.map(parsePackageJSON);
 config.forEach(parseREADME);
-const docsMap = docs.map((doc) => ({ [doc.id]: doc }))
-					.reduce((res, obj) => Object.assign(res, obj), {})
+
+const docIdsMap = docs.map((doc) => ({ [doc.id]: doc }));
+const docNamesMap = docs.map((doc) => ({ [doc.name]: doc }));
+const docsMap = docIdsMap.concat(docNamesMap)
+						 .reduce((res, obj) => Object.assign(res, obj), {})
 
 docs.forEach((doc) => idx.add(doc));
 
@@ -57,6 +60,3 @@ fs.writeFile('./out/index.html', resultHtml, function (err) {
 	if (err) throw err
     console.log('>>> index.html created');
 })
-
-
-
