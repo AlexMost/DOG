@@ -11,7 +11,7 @@ const config = require('./dog.config');
 function parsePackageJSON(module, idx) {
 	const filePath = module.path;
 	const {name, keywords, description} = require(path.resolve(filePath, 'package.json'));
-	return {name, keywords, description, id: idx, type: module.type}
+	return {name, keywords, description: description.split(' '), id: idx, type: module.type}
 }
 
 const idx = lunr(function () {

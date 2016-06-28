@@ -37,6 +37,7 @@
   "dependencies": {
     "lodash": "^4.13.1",
     "lunr": "^0.7.1",
-    "react": "^15.1.0"
+    "react": "^15.1.0",
+    "react-autocomplete": "^1.0.1"
   }
 }
