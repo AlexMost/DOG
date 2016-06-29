@@ -7,7 +7,7 @@ export default ({title}) => (
 	</head>
 	<body>
 	<div id='content'></div>
-	<script src="js/bootstrap.js"></script>
+	<script src="assets/bootstrap.js"></script>
 	</body>
 	</html>`
 )

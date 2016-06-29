@@ -1,9 +1,10 @@
 const path = require('path');
 
 module.exports = {
-    entry: path.resolve(__dirname, "./bootstrap.js"),
+    entry: {app: [path.resolve(__dirname, "./bootstrap.js")]},
     output: {
-        path: path.resolve(__dirname, '../out/js'),
+        path: path.resolve(__dirname, '../out'),
+        publicPath: "/assets/",
         filename: "bootstrap.js"
     },
     module: {

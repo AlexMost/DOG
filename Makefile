@@ -4,8 +4,8 @@ build:
 	node ./node_modules/.bin/build-storybook --config-dir modules/ROverlay/.storybook --output-dir out/components/ROverlay/storybook
 	node_modules/.bin/codo --output out/components/ROverlay/codo modules/ROverlay
 
-serve:
-	devd -o out
+dev:
+	node_modules/.bin/webpack-dev-server --config ./src/webpack.config.js --content-base ./out --history-api-fallback --hot --inline
 
 watch:
 	node_modules/.bin/webpack --config ./src/webpack.config.js -w
