@@ -1,0 +1,12 @@
+{
+    "dependencies": [],
+    "libs": [],
+    "paths": [
+        "./app"
+    ],
+    "public": "../../build/domain/",
+    "jsPath": "CSLib.js",
+    "recipe": [
+        "baselib/spine"
+    ]
+}

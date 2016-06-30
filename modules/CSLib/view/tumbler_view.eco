@@ -1,0 +1,11 @@
+<span class="b-xmas-garland__switcher
+    <% if @active: %>
+        b-xmas-garland__switcher_type_on
+    <% else: %>
+        b-xmas-garland__switcher_type_off
+    <% end %>
+        ">
+    <span class="b-xmas-garland__on">Вкл</span>
+    <span class="b-xmas-garland__switcher-slider"></span>
+    <span class="b-xmas-garland__off">Выкл</span>
+</span>

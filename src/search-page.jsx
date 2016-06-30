@@ -30,13 +30,18 @@ class SearchPage extends React.Component {
 					items={this.state.items}
 					getItemValue={(item) => item.name}
 					onSelect={value => {
-						browserHistory.push(`/comp/${value}`);
-						this.setState({ value });
+						const comp = docMap[value];
+						if (comp.component) {
+							browserHistory.push(`/comp/${comp.component}`);
+						} else {
+							browserHistory.push(`/comp/${value}`);
+						}
+						
 					}}
 		  	        onChange={(event, value) => {
 		  	        	this.setState({ value });
-			            const idxresult = idx.search(value);
-			            const items = idxresult.map(({ref}) => docMap[ref]);
+			            const idxitem = idx.search(value);
+			            const items = idxitem.map(({ref}) => docMap[ref]);
 			            this.setState({ items });
 			        }}
                   renderItem={(item, isHighlighted) => (
